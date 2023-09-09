@@ -1,3 +1,7 @@
 puts "Rock, Paper, or Scissors?:"
-input = gets "\n"
+input = gets
+if input.nil? || input.empty?
+  puts "No input. You must input \"rock\", \"paper\" or \"scissors\" when prompted."
+  exit(1)
+end
 puts input
