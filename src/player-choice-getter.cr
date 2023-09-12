@@ -11,9 +11,13 @@ module PlayerChoiceGetter
     self.player_choice_factory sanitised_user_input
   end
 
-  private def get_user_input : String?
+  private def get_user_input : String
     puts "Rock, Paper, or Scissors?:"
     input = gets
+    if input.nil?
+      raise Exception.new "Received Nil as user input"
+    end
+    input
   end
 
   private def player_choice_factory(player_input : String?) : PlayerChoice
