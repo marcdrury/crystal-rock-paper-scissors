@@ -1,3 +1,5 @@
+require "./invalid-input-exception"
+
 module InputValidator
   extend self
 
@@ -8,8 +10,8 @@ module InputValidator
 
   private def check_input_not_empty(input : String?) : String
     if input.nil? || input.empty?
-      puts "No input. You must input \"rock\", \"paper\" or \"scissors\" when prompted."
-      exit(1)
+      error_message = "No input. You must input \"rock\", \"paper\" or \"scissors\" when prompted."
+      raise InvalidInputException.new error_message
     end
     input
   end
@@ -18,8 +20,8 @@ module InputValidator
     valid_inputs = ["rock", "paper", "scissors"]
     input_lowercased = input.downcase
     if valid_inputs.none? { |option| option == input_lowercased }
-      puts "Invalid input. You must input \"rock\", \"paper\" or \"scissors\" when prompted."
-      exit(1)
+      error_message = "Invalid input. You must input \"rock\", \"paper\" or \"scissors\" when prompted."
+      raise InvalidInputException.new error_message
     end
   end
 end
