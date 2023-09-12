@@ -3,9 +3,9 @@ abstract class PlayerChoice
   @@LOSES_AGAINST = ""
 
   def determine_game_result(opponent_choice : String) : String
-    if opponent_choice == self.WINS_AGAINST
+    if opponent_choice == @@WINS_AGAINST
       return "win"
-    elsif opponent_choice == self.LOSES_AGAINST
+    elsif opponent_choice == @@LOSES_AGAINST
       return "lose"
     else
       return "draw"
