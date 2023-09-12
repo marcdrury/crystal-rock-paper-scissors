@@ -6,7 +6,7 @@ module InputParser
 
   def parse(input : String?) : String
     input = self.validate_not_empty_or_nil input
-    input = self.sanitise input
+    input = input.strip.downcase
     self.validate_is_option input
     input
   end
@@ -17,11 +17,6 @@ module InputParser
       raise InvalidInputException.new error_message
     end
     input
-  end
-
-  private def sanitise(input : String) : String
-    input = input.strip
-    input.downcase
   end
 
   private def validate_is_option(input : String) : Nil
