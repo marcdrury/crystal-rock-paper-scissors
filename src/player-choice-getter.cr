@@ -17,12 +17,7 @@ module PlayerChoiceGetter
   end
 
   private def sanitise_user_input(user_input : String?) : String
-    begin
-      return InputParser.parse user_input
-    rescue exception : InvalidInputException
-      puts exception.message
-      exit(1)
-    end
+    InputParser.parse user_input
   end
 
   private def player_choice_factory(player_input : String?) : PlayerChoice
