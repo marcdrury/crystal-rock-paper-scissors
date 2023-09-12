@@ -4,7 +4,7 @@ require "./valid-options"
 module ChoiceParser
   extend self
 
-  def validate(input : String?) : Nil
+  def parse(input : String?) : Nil
     input = self.check_input_not_empty input
     self.check_input_valid_option input
   end

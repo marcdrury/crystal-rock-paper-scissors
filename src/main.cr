@@ -6,7 +6,7 @@ require "./get-computer-choice"
 
 user_input = get_user_input
 begin
-  ChoiceParser.validate user_input
+  ChoiceParser.parse user_input
 rescue exception : InvalidInputException
   puts exception.message
   exit(1)
