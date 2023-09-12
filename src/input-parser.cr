@@ -5,10 +5,14 @@ module InputParser
   extend self
 
   def parse(input : String) : String
+    sanitised_input = input.strip.downcase
+    self.validate sanitised_input
+    sanitised_input
+  end
+
+  private def validate(input : String) : Nil
     self.validate_not_empty input
-    input = input.strip.downcase
     self.validate_is_option input
-    input
   end
 
   private def validate_not_empty(input : String) : Nil
