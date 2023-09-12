@@ -5,9 +5,9 @@ module InputParser
   extend self
 
   def parse(input : String) : String
-    input = input.strip.downcase
-    self.validate input
-    input
+    sanitised_input = input.strip.downcase
+    self.validate sanitised_input
+    sanitised_input
   end
 
   private def validate(input : String) : Nil
