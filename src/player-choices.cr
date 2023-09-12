@@ -3,9 +3,10 @@ abstract class PlayerChoice
   @@LOSES_AGAINST = ""
   @@IS = ""
 
-  def resolve_game(opponent_choice : String) : Nil
+  def resolve_game(opponent_choice : String) : Boolean
     result = self.determine_game_result opponent_choice
     self.display_game_info opponent_choice, result
+    self.game_over? result
   end
 
   private def determine_game_result(opponent_choice : String) : String
@@ -22,6 +23,10 @@ abstract class PlayerChoice
     puts "You chose: #{@@IS.capitalize}"
     puts "Opponent chose: #{opponent_choice.capitalize}"
     puts result == "draw" ? "It's a draw!" : "You #{result}!"
+  end
+
+  private def game_over?(result : String) : Boolean
+    result == "draw" ? false : true
   end
 end
 
