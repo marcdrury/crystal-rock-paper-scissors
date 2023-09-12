@@ -7,8 +7,8 @@ module PlayerChoiceGetter
   extend self
 
   def get : PlayerChoice
-    user_input = get_user_input
-    sanitised_user_input = sanitise_user_input user_input
+    user_input = self.get_user_input
+    sanitised_user_input = self.sanitise_user_input user_input
     self.player_choice_factory sanitised_user_input
   end
 
