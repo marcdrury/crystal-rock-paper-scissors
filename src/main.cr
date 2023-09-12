@@ -1,12 +1,12 @@
 require "./get-user-input"
-require "./input-validator"
+require "./choice-parser"
 require "./invalid-input-exception"
 require "./player-choice-factory"
 require "./get-computer-choice"
 
 user_input = get_user_input
 begin
-  InputValidator.validate user_input
+  ChoiceParser.validate user_input
 rescue exception : InvalidInputException
   puts exception.message
   exit(1)

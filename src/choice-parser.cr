@@ -1,7 +1,7 @@
 require "./invalid-input-exception"
 require "./valid-options"
 
-module InputValidator
+module ChoiceParser
   extend self
 
   def validate(input : String?) : Nil
