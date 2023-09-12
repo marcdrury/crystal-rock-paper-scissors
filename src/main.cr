@@ -4,15 +4,15 @@ require "./invalid-input-exception"
 require "./player-choice-factory"
 require "./get-computer-choice"
 
-input = get_user_input
+user_input = get_user_input
 begin
-  InputValidator.validate input
+  InputValidator.validate user_input
 rescue exception : InvalidInputException
   puts exception.message
   exit(1)
 end
-player_choice = player_choice_factory input
+player_choice = player_choice_factory user_input
 computer_choice = get_computer_choice
-puts "User chose #{input}"
+puts "User chose #{user_input}"
 puts "Computer chose #{computer_choice}"
 puts player_choice.determine_game_result computer_choice
