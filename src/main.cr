@@ -3,5 +3,4 @@ require "./get-computer-choice"
 
 player_choice = PlayerChoiceGetter.get
 computer_choice = get_computer_choice
-puts "Computer chose #{computer_choice}"
-puts player_choice.determine_game_result computer_choice
+player_choice.resolve_game computer_choice
