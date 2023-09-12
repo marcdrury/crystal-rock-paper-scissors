@@ -1,7 +1,7 @@
 require "./invalid-input-exception"
 require "./valid-options"
 
-module ChoiceParser
+module InputParser
   extend self
 
   def parse(input : String?) : String
