@@ -6,13 +6,13 @@ module PlayerChoiceGetter
   extend self
 
   def get : PlayerChoice
+    puts "Rock, Paper, or Scissors?:"
     user_input = self.get_user_input
     sanitised_user_input = InputParser.parse user_input
     self.player_choice_factory sanitised_user_input
   end
 
   private def get_user_input : String
-    puts "Rock, Paper, or Scissors?:"
     input = gets
     if input.nil?
       raise Exception.new "Received Nil as user input"
