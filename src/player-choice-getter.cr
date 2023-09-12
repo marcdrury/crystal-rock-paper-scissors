@@ -1,7 +1,6 @@
 require "./player-choices"
 require "./input-parser"
 require "./invalid-input-exception"
-require "./player-choice-factory"
 
 module PlayerChoiceGetter
   extend self
