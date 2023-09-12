@@ -1,8 +1,8 @@
+require "./get-user-input"
 require "./input-validator"
 require "./invalid-input-exception"
 
-puts "Rock, Paper, or Scissors?:"
-input = gets
+input = get_user_input
 begin
   InputValidator.validate input
 rescue exception : InvalidInputException
