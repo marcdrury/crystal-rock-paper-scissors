@@ -3,13 +3,13 @@ abstract class PlayerChoice
   @@LOSES_AGAINST = ""
   @@IS = ""
 
-  def resolve_game(opponent_choice : String) : Bool
-    result = self.determine_game_result opponent_choice
-    self.display_game_info opponent_choice, result
+  def resolve_round(opponent_choice : String) : Bool
+    result = self.determine_round_result opponent_choice
+    self.display_round_info opponent_choice, result
     self.game_over? result
   end
 
-  private def determine_game_result(opponent_choice : String) : String
+  private def determine_round_result(opponent_choice : String) : String
     if opponent_choice == @@WINS_AGAINST
       return "win"
     elsif opponent_choice == @@LOSES_AGAINST
@@ -19,7 +19,7 @@ abstract class PlayerChoice
     end
   end
 
-  private def display_game_info(opponent_choice : String, result : String) : Nil
+  private def display_round_info(opponent_choice : String, result : String) : Nil
     puts "You chose: #{@@IS.capitalize}"
     puts "Opponent chose: #{opponent_choice.capitalize}"
     puts result == "draw" ? "It's a draw!" : "You #{result}!"
