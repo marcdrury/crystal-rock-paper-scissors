@@ -9,7 +9,7 @@ module PlayerChoiceGetter
   def get : PlayerChoice
     user_input = get_user_input
     sanitised_user_input = sanitise_user_input user_input
-    player_choice = player_choice_factory sanitised_user_input
+    self.player_choice_factory sanitised_user_input
   end
 
   private def get_user_input : String?
@@ -23,6 +23,18 @@ module PlayerChoiceGetter
     rescue exception : InvalidInputException
       puts exception.message
       exit(1)
+    end
+  end
+
+  private def player_choice_factory(player_input : String?) : PlayerChoice
+    if player_input == "rock"
+      return Rock.new
+    elsif player_input == "paper"
+      return Paper.new
+    elsif player_input == "scissors"
+      return Scissors.new
+    else
+      raise Exception.new "Player input provided to the factory was not a valid choice"
     end
   end
 end
