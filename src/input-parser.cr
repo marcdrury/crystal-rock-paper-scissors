@@ -1,13 +1,13 @@
 require "./invalid-input-exception"
 require "./valid-options"
 
-module ChoiceParser
+module InputParser
   extend self
 
   def parse(input : String?) : String
     input = self.validate_not_empty_or_nil input
     input = self.sanitise input
-    self.validate_is_choice input
+    self.validate_is_option input
     input
   end
 
