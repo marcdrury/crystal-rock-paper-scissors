@@ -1,5 +1,4 @@
 require "./player-choices"
-require "./get-user-input"
 require "./input-parser"
 require "./invalid-input-exception"
 require "./player-choice-factory"
@@ -17,5 +16,10 @@ module PlayerChoiceGetter
       exit(1)
     end
     player_choice = player_choice_factory sanitised_user_input
+  end
+
+  private def get_user_input : String?
+    puts "Rock, Paper, or Scissors?:"
+    input = gets
   end
 end
