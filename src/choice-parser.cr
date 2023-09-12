@@ -1,15 +1,17 @@
 require "./invalid-input-exception"
 require "./valid-options"
 
-module InputValidator
+module ChoiceParser
   extend self
 
-  def validate(input : String?) : Nil
-    input = self.check_input_not_empty input
-    self.check_input_valid_option input
+  def parse(input : String?) : String
+    input = self.validate_not_empty_or_nil input
+    input = self.sanitise input
+    self.validate_is_choice input
+    input
   end
 
-  private def check_input_not_empty(input : String?) : String
+  private def validate_not_empty_or_nil(input : String?) : String
     if input.nil? || input.empty?
       error_message = "No input. You must input \"rock\", \"paper\" or \"scissors\" when prompted."
       raise InvalidInputException.new error_message
@@ -17,9 +19,13 @@ module InputValidator
     input
   end
 
-  private def check_input_valid_option(input : String) : Nil
-    input_lowercased = input.downcase
-    if VALID_OPTIONS.none? { |option| option == input_lowercased }
+  private def sanitise(input : String) : String
+    input = input.strip
+    input.downcase
+  end
+
+  private def validate_is_option(input : String) : Nil
+    if VALID_OPTIONS.none? { |option| option == input }
       error_message = "Invalid input. You must input \"rock\", \"paper\" or \"scissors\" when prompted."
       raise InvalidInputException.new error_message
     end
