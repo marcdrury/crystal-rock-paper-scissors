@@ -24,7 +24,7 @@ module ChoiceParser
     input.downcase
   end
 
-  private def validate_is_choice(input : String) : Nil
+  private def validate_is_option(input : String) : Nil
     if VALID_OPTIONS.none? { |option| option == input }
       error_message = "Invalid input. You must input \"rock\", \"paper\" or \"scissors\" when prompted."
       raise InvalidInputException.new error_message
