@@ -1,6 +1,7 @@
 require "./get-user-input"
 require "./input-validator"
 require "./invalid-input-exception"
+require "./get-computer-choice"
 
 input = get_user_input
 begin
@@ -9,4 +10,6 @@ rescue exception : InvalidInputException
   puts exception.message
   exit(1)
 end
-puts input
+computer_choice = get_computer_choice
+puts "User chose #{input}"
+puts "Computer chose #{computer_choice}"
