@@ -20,9 +20,13 @@ abstract class PlayerChoice
   end
 
   private def display_round_info(opponent_choice : String, result : String) : Nil
+    self.display_player_choices opponent_choice
+    self.display_round_result result
+  end
+
+  private def display_player_choices(opponent_choice : String) : Nil
     puts "You chose: #{@@IS.capitalize}"
     puts "Opponent chose: #{opponent_choice.capitalize}"
-    self.display_round_result result
   end
 
   private def display_round_result(result : String) : Nil
