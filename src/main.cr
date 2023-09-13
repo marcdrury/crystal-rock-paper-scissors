@@ -1,3 +1,5 @@
+require "colorize"
+
 require "./player-choice-getter"
 require "./get-computer-choice"
 
@@ -9,6 +11,6 @@ begin
     game_over = player_choice.resolve_round computer_choice
   end
 rescue exception : InvalidInputException
-  puts exception.message
+  puts exception.message.colorize(:red)
   exit(1)
 end

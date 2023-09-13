@@ -20,9 +20,24 @@ abstract class PlayerChoice
   end
 
   private def display_round_info(opponent_choice : String, result : String) : Nil
+    self.display_player_choices opponent_choice
+    self.display_round_result result
+  end
+
+  private def display_player_choices(opponent_choice : String) : Nil
     puts "You chose: #{@@IS.capitalize}"
     puts "Opponent chose: #{opponent_choice.capitalize}"
-    puts result == "draw" ? "It's a draw!" : "You #{result}!"
+  end
+
+  private def display_round_result(result : String) : Nil
+    case result
+    when "draw"
+      puts "It's a draw!".colorize(:yellow)
+    when "win"
+      puts "You win!".colorize(:green)
+    when "lose"
+      puts "You lose!".colorize(:red)
+    end
   end
 
   private def game_over?(result : String) : Bool
