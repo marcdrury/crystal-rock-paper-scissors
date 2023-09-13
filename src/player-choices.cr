@@ -32,7 +32,7 @@ abstract class PlayerChoice
   private def display_round_result(result : String) : Nil
     case result
     when "draw"
-      puts "It's a draw!".colorize(:yellow)
+      puts "It's a draw, play again!".colorize(:yellow)
     when "win"
       puts "You win!".colorize(:green)
     when "lose"
