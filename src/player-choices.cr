@@ -5,6 +5,7 @@ abstract class PlayerChoice
 
   def resolve_round(opponent_choice : String) : Bool
     result = self.determine_round_result opponent_choice
+    self.delay_resolution
     self.display_round_info opponent_choice, result
     self.game_over? result
   end
@@ -17,6 +18,16 @@ abstract class PlayerChoice
     else
       return "draw"
     end
+  end
+
+  private def delay_resolution : Nil
+    count = 0
+    while count < 3
+      count += 1
+      printf "."
+      sleep 1
+    end
+    printf "\n"
   end
 
   private def display_round_info(opponent_choice : String, result : String) : Nil
